@@ -1,0 +1,15 @@
+<h1>Burgers to Eat</h1>
+
+<ul>
+  {{#each burgers}}
+  	<li>
+       <p>{{this.burger}}</p>
+  	</li>
+  {{/each}}
+</ul>
+
+<form action="/" method="POST">
+	<textarea type="text" name="task"></textarea>
+
+	<button type="submit">Devour</button>
+</form>
