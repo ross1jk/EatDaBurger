@@ -12,10 +12,9 @@ router.get('/', (req, res) => {
 });
 
 router.post('/api/burgers', (req, res) => {
-    console.log("here")
+    console.log("here"); 
     burger.create(['burgers'], [req.body.burger_name], (result) => {
-        // Send back the ID of the new quote
-        res.json({ id: result.insertId });
+        res.redirect('/'); 
 });
 });
 
