@@ -4,7 +4,6 @@ const burger = require('../models/burger.js');
 
 // Create all our routes and set up logic within those routes where required.
 router.get('/', (req, res) => {
-    console.log("here")
     burger.selectAll((data) => {
         // if (err) throw err;
         console.log({ burgers: data }); 
@@ -12,12 +11,13 @@ router.get('/', (req, res) => {
     });
 });
 
-// router.post('/api/burgers', (req, res) => {
-//     cat.create(['name', 'sleepy'], [req.body.name, req.body.sleepy], (result) => {
-//         // Send back the ID of the new quote
-//         res.json({ id: result.insertId });
-// });
-// });
+router.post('/api/burgers', (req, res) => {
+    console.log("here")
+    burger.create(['burgers'], [req.body.burger_name], (result) => {
+        // Send back the ID of the new quote
+        res.json({ id: result.insertId });
+});
+});
 
 // router.put('/api/burgers/:id', (req, res) => {
 

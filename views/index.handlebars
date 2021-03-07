@@ -1,15 +1,69 @@
-<h1>Burgers to Eat</h1>
+<h1>Eat-Da-Burger</h1>
 
+<h2>Burgers to Eat</h2>
 <ul>
-  {{#each burgers}}
-  	<li>
-       <p>{{this.burger_name}}</p>
-  	</li>
-  {{/each}}
+	{{#each burgers}}
+	{{#unless devoured}}
+	<li>{{this.burger_name}}</li>
+	{{/unless}}
+	{{/each}}
 </ul>
 
-<form action="/" method="POST">
-	<textarea type="text" name="task"></textarea>
+<h2>Burgers Devoured</h2>
+<ul>
+	{{#each burgers}}
+	{{#if devoured}}
+	<li>{{this.burger_name}}</li>
+	{{/if}}
+	{{/each}}
+</ul>
 
-	<button type="submit">Devour</button>
+<h2>Add-A-Burger</h2>
+<form id="create-form">
+
+	<div class="form-group">
+		<label for="burgerType">Burger Type: </label>
+		<input type="text" id="burgerType" name="name">
+	</div>
+
+	<button type="submit">MMMMM Burgers</button>
 </form>
+
+<script>
+	document.addEventListener('DOMContentLoaded', (event) => {
+		if (event) {
+			console.info('DOM loaded');
+		});
+
+	const createBurgerBtn = document.getElementById('create-form');
+
+	if (createBurgerBtn) {
+		createBurgerBtn.addEventListener('submit', (e) => {
+			e.preventDefault();
+
+			const newBurger = {
+				burger_name: document.getElementById('burgerType').value.trim(),
+			};
+
+			// Send POST request to create a new quote
+			fetch('/api/burgers', {
+				method: 'POST',
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/json',
+				},
+
+				// make sure to serialize the JSON body
+				body: JSON.stringify(newBurger),
+			}).then(() => {
+				// Empty the form
+				document.getElementById('burgerType').value = '';
+
+				// Reload the page so the user can see the new quote
+				console.log('added a new burger!');
+				location.reload();
+			});
+		});
+	};
+
+</script>

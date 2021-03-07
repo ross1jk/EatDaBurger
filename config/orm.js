@@ -1,3 +1,4 @@
+const { query } = require('./connection.js');
 const connection = require('./connection.js');
 
 const orm = {
@@ -9,11 +10,22 @@ const orm = {
             (err, result) => {
                if (err) throw err;
                cb(result);
-                // console.log(result);
             }
         );
     },
-    // insertOne()
+    
+    insertOne(tableInput, param, cb){
+        console.log("orm.js")
+        const queryString = 'INSERT INTO ?? VALUES ??'
+        connection.query(
+            queryString,
+            [req.body.burgers], 
+            (err, result) => {
+                if (err) throw err; 
+                cb(result); 
+            }
+        )
+    }
     // updateOne()
 }
 
