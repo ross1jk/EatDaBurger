@@ -19,51 +19,46 @@
 </ul>
 
 <h2>Add-A-Burger</h2>
-<form id="create-form">
 
-	<div class="form-group">
-		<label for="burgerType">Burger Type: </label>
-		<input type="text" id="burgerType" name="name">
-	</div>
-
-	<button type="submit">MMMMM Burgers</button>
+<form id="addBurger">
+	<input type="text" name="burger_name" id="burger_name">
+	<button type="submit">ADD BURGER</button>
 </form>
 
-<script>
+<script type="text/javascript">
 	document.addEventListener('DOMContentLoaded', (event) => {
 		if (event) {
 			console.info('DOM loaded');
+		};
+	});
+
+	// create
+	const submitBurgerBtn = document.getElementById('addBurger');
+
+	submitBurgerBtn.addEventListener('submit', (e) => {
+		e.preventDefault();
+
+		const newBurger = {
+			burger_name: document.getElementById('burger_name').value.trim(),
+		};
+
+		console.log(newBurger);
+
+		// Send POST request to create a new quote
+		fetch('/api/burgers', {
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+			},
+			// make sure to serialize the JSON body
+			body: JSON.stringify(newBurger),
+		}).then(() => {
+			// Empty the form
+			document.getElementById('burger_name').value = '';
+			console.log('Added a new burger!');
+			location.reload();
 		});
-
-	const createBurgerBtn = document.getElementById('create-form');
-
-	if (createBurgerBtn) {
-		createBurgerBtn.addEventListener('submit', (e) => {
-			e.preventDefault();
-
-			const newBurger = {
-				burger_name: document.getElementById('burgerType').value.trim(),
-			};
-
-			// Send POST request to create a new quote
-			fetch('/api/burgers', {
-				method: 'POST',
-				headers: {
-					Accept: 'application/json',
-					'Content-Type': 'application/json',
-				},
-
-				// make sure to serialize the JSON body
-				body: JSON.stringify(newBurger),
-			}).then(() => {
-				// Empty the form
-				document.getElementById('burgerType').value = '';
-
-				// Reload the page so the user can see the new quote
-				console.log('added a new burger!');
-				location.reload();
-			});
-		});
-	};
+	});
 
 </script>
