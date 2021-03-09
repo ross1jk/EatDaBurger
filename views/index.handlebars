@@ -4,7 +4,7 @@
 <ul>
 	{{#each burgers}}
 	{{#unless devoured}}
-	<li>{{this.burger_name}} <button type="submit">Devoured</button></button></li>
+	{{> burgers/burger-block devoured=false}}
 	{{/unless}}
 	{{/each}}
 </ul>
@@ -13,7 +13,7 @@
 <ul>
 	{{#each burgers}}
 	{{#if devoured}}
-	<li>{{this.burger_name}}</li>
+	{{> burgers/burger-block devoured=true}}
 	{{/if}}
 	{{/each}}
 </ul>
@@ -32,18 +32,15 @@
 		};
 	});
 
+
 	// create
 	const submitBurgerBtn = document.getElementById('addBurger');
-
 	submitBurgerBtn.addEventListener('submit', (e) => {
 		e.preventDefault();
-
 		const newBurger = {
 			burger_name: document.getElementById('burger_name').value.trim(),
 		};
-
 		console.log(newBurger);
-
 		// Send POST request to create a new quote
 		fetch('/api/burgers', {
 			method: 'POST',
@@ -60,5 +57,42 @@
 			location.reload();
 		});
 	});
+
+
+	// update 
+	const devourBurgerBtn = document.querySelectorAll('.ateBurger');
+
+	if (devourBurgerBtn) {
+		devourBurgerBtn.forEach((button) => {
+			button.addEventListener('click', (e) => {
+				const id = e.target.getAttribute('data-id');
+				const devouredBurger = e.target.getAttribute('data-devoured');
+
+				const dvevouredBurgerState = {
+					devoured: devouredBurger,
+				}
+
+
+				fetch(`/api/burgers/${id}`, {
+					method: 'PUT',
+					headers: {
+						Accept: 'application/json',
+						'Content-Type': 'application/json',
+					},
+
+					body: JSON.stringify(devouredBurger),
+				}).then((response) => {
+					// Check that the response is all good
+					// Reload the page so the user can see the new quote
+					if (response.ok) {
+						console.log(`Burger has been devoured`);
+						location.reload('/');
+					} else {
+						alert('something went wrong!');
+					}
+				});
+			});
+		});
+	};
 
 </script>
