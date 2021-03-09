@@ -82,8 +82,6 @@
 				});
 			}
 
-
-			// update 
 			// UPDATE
 			const changeBurgerBtns = document.querySelectorAll('.change-devoured');
 
@@ -91,11 +89,9 @@
 			if (changeBurgerBtns) {
 				changeBurgerBtns.forEach((button) => {
 					button.addEventListener('click', (e) => {
-						console.log('test');
-						// Grabs the id of the element that goes by the name, "id"
 						const id = e.target.getAttribute('data-id');
-						const newDevour = e.target.getAttribute('data-newdevour');
-
+						const newDevour = e.target.getAttribute('data-devoured');
+						console.log(newDevour); 
 						const newDevourState = {
 							devoured: newDevour,
 						};
@@ -117,6 +113,7 @@
 								location.reload('/');
 							} else {
 								alert('something went wrong!');
+								console.log(response + " " + newDevourState); 
 							}
 						});
 					});
