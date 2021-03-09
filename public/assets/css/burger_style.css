@@ -1,11 +1,17 @@
 .jumbotron{
     text-align: center;
-    background-color: #E7AD99; 
+    background-image: url('../img/background.PNG'); 
+    background-size: cover; 
+    height: 125px;  
 }
 
+body{
+    background-color: #FBE0E6;
+    opacity: 75%;
+}
 h2 {
     text-align: center;
-    color: #E7AD99;
+    color: #ED7D96;
 }
 
 
@@ -18,9 +24,16 @@ h2 {
 }
 
 #addBurgerCard{
-    width: 65%;
+    width: 40%;
     margin-left: auto; 
     margin-right: auto; 
+    background-image: url('../img/background.PNG'); 
+    background-size: contain;
+    border-color: yellow; 
+}
+
+#cardheading{
+    color: white;
 }
 
 li {
