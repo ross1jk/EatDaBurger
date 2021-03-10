@@ -1,9 +1,9 @@
 
 # Eat-Da-Burger
 
-![badge](https://img.shields.io/static/v1?label=License&message=MIT%20License&color=blue)
+![badge](https://img.shields.io/static/v1?label=License&message=MIT%20License&color=blue) 
 
-[burger](./public/assets/img/burger.png)
+![burger](./public/assets/img/burger.png)
   
 ## Description
 
@@ -18,7 +18,6 @@ Eat-Da-Burger is a burger logger application that utilzes n MySQL, Node, Express
 * [Directory_Structure](#Directory_Structure)
 * [Schema](#Schema)
 * [License](#License)
-* [Tests](#Tests)
 * [Questions](#Questions)
   
 ## Deployed_Application
@@ -27,7 +26,7 @@ To access this deployed application, visit the following link:
 
 ## Mock-Up
 
-[Mockup](./public/assets/img/mockup.png)
+![Mockup](./public/assets/img/mockup.png)
 
 ## Usage
 
@@ -83,11 +82,11 @@ This application uses bootstrap, and is responsive
 ### Database: burgers_db
 
 ```
- **burgers**:
+Table: burgers
 
- **id** - INT PRIMARY KEY
- **burger_name** - VARCHAR(255) to hold burger name
-**devoured** - BOOLEAN DEFAULT false - this application assumes a burger added is not eaten yet. 
+**id** - INT PRIMARY KEY
+**burger_name** - VARCHAR(255) to hold burger name **devoured** - BOOLEAN DEFAULT false - this application assumes a burger added is not eaten yet. 
+```
 
 ## License
 
