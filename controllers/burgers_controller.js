@@ -2,27 +2,24 @@ const express = require('express');
 const router = express.Router();
 const burger = require('../models/burger.js');
 
-// Create all our routes and set up logic within those routes where required.
+// Route to Get All Burgers 
 router.get('/', (req, res) => {
     burger.selectAll((data) => {
-        // if (err) throw err;
         res.render('index', { burgers: data });
     });
 });
 
+// Route to insert a New Burger 
 router.post('/api/burgers', (req, res) => {
     burger.insertOne(['burger_name'], [req.body.burger_name], (result) => {
         res.json({ id: result.insertId });
     });
 });
 
+// Route to Update an Exisiting Burgers State
 router.put('/api/burgers/:id', (req, res) => {
     const condtion = `id = ${req.params.id}`;
-    console.log('condtion', condtion);
     burger.updateOne(
-        // request.params.id, function (result) {
-        //     console.log(result);
-        // }
         {
             devoured: req.body.devoured,
         },
