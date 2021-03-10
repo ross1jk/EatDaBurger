@@ -85,7 +85,8 @@ This application uses bootstrap, and is responsive
 Table: burgers
 
 **id** - INT PRIMARY KEY
-**burger_name** - VARCHAR(255) to hold burger name **devoured** - BOOLEAN DEFAULT false - this application assumes a burger added is not eaten yet. 
+**burger_name** - VARCHAR(255) to hold burger name
+**devoured** - BOOLEAN DEFAULT false - this application assumes a burger added is not eaten yet. 
 ```
 
 ## License
