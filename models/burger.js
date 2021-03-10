@@ -13,7 +13,6 @@ const burger = {
 
     // Updates an Existing Burgers State
     updateOne(objColVals, condtion, cb) {
-        console.log("inside updateone burger.js")
         orm.updateOne('burgers', objColVals, condtion, (res) => cb(res));
     }
 };

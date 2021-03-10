@@ -2,18 +2,31 @@
     text-align: center;
     background-image: url('../img/background.PNG'); 
     background-size: cover; 
-    height: 125px;  
+    height: 125px;
+}
+
+h1{
+    font-family: 'Luckiest Guy', cursive;
+    color: #34b4d8;
+}
+
+.lead{
+    font-family: 'Truculenta', sans-serif;
+    font-size: 30px; 
+    font-weight: bold;
+    color: black; 
 }
 
 body{
-    background-color: #FBE0E6;
+    background-color: #f9dde4;
     opacity: 75%;
 }
+
 h2 {
     text-align: center;
     color: #ED7D96;
+    font-family: 'Luckiest Guy', cursive;
 }
-
 
 .row{
     margin-top: 20px;
@@ -30,6 +43,7 @@ h2 {
     background-image: url('../img/background.PNG'); 
     background-size: contain;
     border-color: yellow; 
+    border-width: 5px; 
 }
 
 #cardheading{
@@ -37,6 +51,14 @@ h2 {
 }
 
 li {
-    font-size: 18px;
+    font-size: 25px;
+    font-family: 'Truculenta', sans-serif;
     margin-top: 5px;
+    color: black;
+}
+
+.btn{
+    font-family: 'Truculenta', sans-serif;
+    font-weight: bold; 
+    color: white;
 }
