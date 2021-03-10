@@ -22,7 +22,7 @@ Eat-Da-Burger is a burger logger application that utilzes n MySQL, Node, Express
   
 ## Deployed_Application
 
-To access this deployed application, visit the following link: 
+To access this deployed application, visit the following link: [Eat-Da-Burger Application](https://dry-eyrie-60767.herokuapp.com/)
 
 ## Mock-Up
 
