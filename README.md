@@ -1,55 +1,43 @@
-# EatDaBurger
 
-# Node Express Handlebars
+# Eat-Da-Burger
 
-### Overview
+![badge](https://img.shields.io/static/v1?label=License&message=MIT%20License&color=blue)
 
-In this assignment, you'll create a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!). Be sure to follow the MVC design pattern; use Node and MySQL to query and route data in your app, and Handlebars to generate your HTML.
+[burger](./public/assets/img/burger.png)
+  
+## Description
 
-### Important
+Eat-Da-Burger is a burger logger application that utilzes n MySQL, Node, Express, Handlebars and an ORM. This application follows design pattern. Eat-Da-Burger uses Node and MySQL to query and route data to the application, and Handlebars to generate the HTML.
 
-* **This assignment must be deployed.** Be sure to utilize the [MYSQL Heroku Deployment Guide](../../04-Important/MySQLHerokuDeploymentProcess.pdf) in order to deploy your assignment.
 
-### Before You Begin
+## Table of Contents
 
-* Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
+* [Deployed_Application](#Deployed_Application)
+* [Mockup](#Mock-Up)
+* [Usage](#Usage)
+* [Directory_Structure](#Directory_Structure)
+* [Schema](#Schema)
+* [License](#License)
+* [Tests](#Tests)
+* [Questions](#Questions)
+  
+## Deployed_Application
 
-* Whenever a user submits a burger's name, your app will display the burger on the left side of the page -- waiting to be devoured.
+To access this deployed application, visit the following link: 
 
-* Each burger in the waiting area also has a `Devour it!` button. When the user clicks it, the burger will move to the right side of the page.
+## Mock-Up
 
-* Your app will store every burger in a database, whether devoured or not.
+[Mockup](./public/assets/img/mockup.png)
 
-* [Check out this video of the app for a run-through of how it works](https://youtu.be/msvdn95x9OM).
+## Usage
 
-### Submission on BCS
+This application uses Node and MySQL to query and route data, and Handlebars to generate the HTML. 
 
-* **This assignment must be deployed.** * Please submit both the deployed Heroku link to your homework AND the link to the Github Repository!
+When a user is entering a burger, it will appear in the left hand column ‘Burgers to Eat’. If they select the button ‘DEVOURED!’ That item will move to right hand column ‘Burgers Devoured’. If the select ‘I Didn’t Finish That!’ The Burger Devoured will move back to ‘Burgers to Eat’. 
 
-## Instructions
+This application uses bootstrap, and is responsive
 
-7. Require the following npm packages inside of the server.js file:
-   * express
-
-#### View setup
-
-1. Inside your `burger` directory, create a folder named `views`.
-
-   * Create the `index.handlebars` file inside `views` directory.
-
-   * Create the `layouts` directory inside `views` directory.
-
-     * Create the `main.handlebars` file inside `layouts` directory.
-
-     * Setup the `main.handlebars` file so it's able to be used by Handlebars.
-
-     * Setup the `index.handlebars` to have the template that Handlebars can render onto.
-
-     * Create a button in `index.handlebars` that will submit the user input into the database.
-
-#### Directory structure
-
-All the recommended files and directories from the steps above should look like the following structure:
+## Directory_Structure
 
 ```
 .
@@ -76,7 +64,10 @@ All the recommended files and directories from the steps above should look like 
 │       ├── css
 │       │   └── burger_style.css
 │       └── img
-│           └── burger.png
+│       |   └── background.png
+│       |
+│       └── scripts
+│           └── burger_handlebars.js
 │   
 │
 ├── server.js
@@ -87,18 +78,24 @@ All the recommended files and directories from the steps above should look like 
         └── main.handlebars
 ```
 
-### Reminder: Submission on BCS
+## Schema
 
-* Please submit both the deployed Heroku link to your homework AND the link to the Github Repository!
+### Database: burgers_db
 
-### Hosting on Heroku
+```
+ **burgers**:
 
-Now that we have a backend to our applications, we use Heroku for hosting. Please note that while **Heroku is free**, it will request credit card information if you have more than 5 applications at a time or are adding a database.
+ **id** - INT PRIMARY KEY
+ **burger_name** - VARCHAR(255) to hold burger name
+**devoured** - BOOLEAN DEFAULT false - this application assumes a burger added is not eaten yet. 
 
-Please see [Heroku’s Account Verification Information](https://devcenter.heroku.com/articles/account-verification) for more details.
+## License
 
-### Add To Your Portfolio
+This application has a MIT License type. Please read more about permissions at [Choose A License](https://choosealicense.com/licenses/)
 
-After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
+## Questions
 
-- - -
+Please reach out to me with any additional questions by contacting me.
+
+* GitHub Profile: https://github.com/ross1jk
+* My Email Address: Jacqueline.ross09@gmail.com
